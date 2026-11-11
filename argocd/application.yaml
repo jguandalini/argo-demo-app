@@ -1,0 +1,22 @@
+# Aplicação do Argo CD: aponta para a pasta k8s/ deste repositório.
+# Aplicar uma única vez:  kubectl apply -f argocd/application.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jguandalini/argocd-demo-app.git
+    targetRevision: main
+    path: k8s
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo-app
+  syncPolicy:
+    automated:
+      prune: true      # apaga do cluster o que foi removido do Git
+      selfHeal: true   # desfaz alterações feitas na mão no cluster
+    syncOptions:
+      - CreateNamespace=true

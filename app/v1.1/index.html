@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Recarrega a cada 5 s para mostrar a troca de versão ao vivo -->
+  <meta http-equiv="refresh" content="5">
+  <title>Demo App · v1.1</title>
+  <style>
+    :root { --cor: #16a34a; --cor-clara: #dcfce7; --fundo: #04150c; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 30% 20%, #14532d 0%, var(--fundo) 60%);
+      color: #fff; padding: 24px;
+    }
+    .card {
+      width: 100%; max-width: 560px; background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.15); border-radius: 20px; padding: 40px 36px;
+      text-align: center; backdrop-filter: blur(6px);
+    }
+    .tag { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 2px;
+           background: var(--cor-clara); color: #14532d; padding: 6px 14px; border-radius: 999px; }
+    .novo { display: inline-block; margin-left: 8px; font-size: 13px; font-weight: 800; letter-spacing: 1px;
+            background: #facc15; color: #422006; padding: 6px 12px; border-radius: 999px; }
+    .versao { font-size: 96px; font-weight: 900; line-height: 1; margin: 28px 0 8px; color: #86efac; }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 12px; }
+    p  { color: rgba(255,255,255,.75); font-size: 16px; line-height: 1.5; }
+    .mudou { text-align: left; margin: 22px auto 0; max-width: 380px; list-style: none; }
+    .mudou li { padding: 6px 0; color: rgba(255,255,255,.85); font-size: 15px; }
+    .mudou li::before { content: "✓"; color: #86efac; font-weight: 800; margin-right: 10px; }
+    .pod { margin-top: 24px; padding: 14px; border-radius: 12px; background: rgba(0,0,0,.3);
+           font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 15px; }
+    .pod span { color: #86efac; font-weight: 700; }
+    .rodape { margin-top: 22px; font-size: 13px; color: rgba(255,255,255,.5); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="tag">KUBERNETES + ARGO CD</span><span class="novo">NOVO</span>
+    <div class="versao">v1.1</div>
+    <h1>Demo App</h1>
+    <p>Nova versão entregue só com um commit no Git. Ninguém rodou kubectl apply.</p>
+    <ul class="mudou">
+      <li>Visual novo (verde)</li>
+      <li>Lista do que mudou nesta versão</li>
+      <li>Atualização sem downtime (rolling update)</li>
+    </ul>
+    <div class="pod">pod: <span>__POD_NAME__</span></div>
+    <div class="rodape">A página recarrega a cada 5 segundos · /version · /healthz</div>
+  </main>
+</body>
+</html>
