@@ -23,7 +23,7 @@ spec:
       containers:
         - name: demo-app
           # >>> NA DEMO, TROQUE A TAG AQUI: 1.0 -> 1.1 <<<
-          image: jguandalini/demo-app:1.0
+          image: jguandalini/demo-app:1.1
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
